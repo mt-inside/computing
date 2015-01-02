@@ -2,11 +2,12 @@
 
 import random
 
-dictionary = {
-    "hello": "bonjour",
-    "goodbye": "au revoir",
-    "swimming pool": "piscine"
-}
+dictionary = dict()
+
+with open("dictionary.txt") as dictionary_file:
+    for line in dictionary_file:
+        (english, french) = line.split(":")
+        dictionary[english] = french.strip()
 
 while True:
     english_word = random.choice(list(dictionary.keys()))
